@@ -1,0 +1,7 @@
+[book]
+title = "Competency Portfolio"
+language = "en"
+src = "src"
+
+[output.html]
+git-repository-url = "https://github.com/grinnell-csc324-fall-2026/recycling"
