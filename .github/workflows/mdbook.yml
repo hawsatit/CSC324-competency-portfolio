@@ -1,60 +1,40 @@
-# Sample workflow for building and deploying a mdBook site to GitHub Pages
-#
-# To get started with mdBook see: https://rust-lang.github.io/mdBook/index.html
-#
-name: Deploy mdBook site to Pages
+{\rtf1\ansi\ansicpg1252\cocoartf2870
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww28600\viewh16040\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  # Build job
-  build:
-    runs-on: ubuntu-latest
-    env:
-      MDBOOK_VERSION: 0.4.36
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install mdBook
-        run: |
-          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
-          rustup update
-          cargo install --version ${MDBOOK_VERSION} mdbook
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-      - name: Build with mdBook
-        run: mdbook build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./book
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+\f0\fs24 \cf0 name: Deploy mdBook\
+on:\
+  push:\
+    branches: [main]\
+  workflow_dispatch:\
+\
+permissions:\
+  contents: read\
+  pages: write\
+  id-token: write\
+\
+jobs:\
+  build:\
+    runs-on: ubuntu-latest\
+    steps:\
+      - uses: actions/checkout@v4\
+      - uses: peaceiris/actions-mdbook@v2\
+        with:\
+          mdbook-version: latest\
+      - run: mdbook build\
+      - uses: actions/upload-pages-artifact@v3\
+        with:\
+          path: ./book\
+\
+  deploy:\
+    needs: build\
+    runs-on: ubuntu-latest\
+    environment:\
+      name: github-pages\
+      url: $\{\{ steps.deployment.outputs.page_url \}\}\
+    steps:\
+      - id: deployment\
+        uses: actions/deploy-pages@v4}
