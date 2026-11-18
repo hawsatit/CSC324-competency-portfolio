@@ -1,4 +1,4 @@
-# Competency Portfolio
+# Competency Portfolio Tanadanai (Fui) Hawsatitam
 
 Project: [Recycling](https://github.com/grinnell-csc324-fall-2026/recycling) — CSC 324, Fall 2026
 
