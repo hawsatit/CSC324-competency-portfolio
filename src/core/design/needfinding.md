@@ -20,3 +20,4 @@ Did an interview with my roommate and discussed the results with my group.
 
 ## Reflection
 
+I thought this was a pretty fun experience, as initially I didn't really care about the goal of this project, but interviewing my friends showed that recycling was actually a very hard thing to do in Grinnell. It was also cool to see how this process, which seems so informal, can give very valuable information, and I am curious to see how large companies implement needfinding.
